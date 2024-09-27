@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: microservices-appset
+  name: microservices
   namespace: argocd
 spec:
   generators:
     - list:
         elements:
-          - name: service1
-          - name: service2
+          - name: service3
+          - name: service4
   template:
     metadata:
       name: '{{name}}'  

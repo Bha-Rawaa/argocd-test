@@ -1,4 +1,4 @@
-replicaCount: 2
+replicaCount: 4
 image:
   repository: rawaabha/template-registry
   tag: "0.1"
