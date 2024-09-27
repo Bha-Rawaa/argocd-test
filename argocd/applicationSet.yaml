@@ -17,7 +17,7 @@ spec:
       project: default
       source:
         repoURL: 'https://github.com/Bha-Rawaa/argocd-test.git'  
-        targetRevision: HEAD
+        targetRevision: Infra-test
         path: helm
         helm:
           valueFiles:
