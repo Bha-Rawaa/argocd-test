@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: microservices-appset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: service1
+            namespace: default
+            spec:
+              project: default
+              source:
+                repoURL: 'https://github.com/Bha-Rawaa/argocd-test.git' 
+                targetRevision: HEAD
+                path: helm
+                helm:
+                  valueFiles:
+                    - values/service1-values.yaml
+              destination:
+                server: https://kubernetes.default.svc
+                namespace: default
+              syncPolicy:
+                automated:
+                  prune: true
+                  selfHeal: true
+          - name: service2
+            namespace: default
+            spec:
+              project: default
+              source:
+                repoURL: 'https://github.com/Bha-Rawaa/argocd-test.git' 
+                targetRevision: HEAD
+                path: helm
+                helm:
+                  valueFiles:
+                    - values/service2-values.yaml
+              destination:
+                server: https://kubernetes.default.svc
+                namespace: default
+              syncPolicy:
+                automated:
+                  prune: true
+                  selfHeal: true

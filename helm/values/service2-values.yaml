@@ -1,0 +1,15 @@
+replicaCount: 2
+image:
+  repository: rawaabha/template-registry
+  tag: "0.1"
+
+service:
+  enabled: true
+  port: 8080
+
+ingress:
+  enabled: true
+  host: service2.local
+  path: /
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /

@@ -1,0 +1,16 @@
+replicaCount: 2
+
+image:
+  repository: rawaabha/service-crafter
+  tag: "0.1"
+
+service:
+  enabled: true
+  port: 80
+
+ingress:
+  enabled: true
+  host: service1.local
+  path: /
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
